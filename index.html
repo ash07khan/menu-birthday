@@ -3,88 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Extraordinary Birthday Wish</title>
+    <title>Birthday Wish</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
             background-color: #1a1a1a;
             color: #fff;
-            text-align: center;
             padding: 50px;
             margin: 0;
         }
         h1 {
             color: #ff6600;
             font-size: 3em;
+            animation: bounce 1.5s infinite;
         }
         p {
             font-size: 1.2em;
-            margin-bottom: 20px;
+            animation: fadeInUp 1s forwards;
         }
-        #confetti {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 9999;
+        img {
+            width: 150px;
+            border-radius: 50%;
+            margin-top: 20px;
+            animation: rotate 3s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
         }
     </style>
 </head>
 <body>
-    <h1 id="birthday-heading">🎉 Happy Birthday, Mehnoor! 🎉</h1>
-    <p id="birthday-message">Happy birthday, sis! 🎉 Wishing you a year ahead filled with joy, love, and all your heart desires. Cheers to another amazing chapter in your life! 🎂🎈!</p>
-
-    <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            anime.timeline({ loop: false })
-                .add({
-                    targets: '#birthday-heading',
-                    translateY: [-100, 0],
-                    opacity: [0, 1],
-                    easing: 'easeInOutQuad',
-                    duration: 800
-                })
-                .add({
-                    targets: '#birthday-message',
-                    translateY: [-50, 0],
-                    opacity: [0, 1],
-                    easing: 'easeInOutQuad',
-                    duration: 800
-                });
-
-            const confettiContainer = document.getElementById('confetti');
-
-            function createConfetti() {
-                const confetti = document.createElement('div');
-                confetti.className = 'confetti';
-                confetti.style.background = randomColor();
-                confetti.style.left = Math.random() * 100 + 'vw';
-                confetti.style.animationDuration = Math.random() * 3 + 2 + 's';
-                confetti.style.animationDelay = Math.random() * 2 + 's';
-
-                confettiContainer.appendChild(confetti);
-
-                confetti.addEventListener('animationend', function() {
-                    confetti.remove();
-                });
-            }
-
-            function randomColor() {
-                const letters = '0123456789ABCDEF';
-                let color = '#';
-                for (let i = 0; i < 6; i++) {
-                    color += letters[Math.floor(Math.random() * 16)];
-                }
-                return color;
-            }
-
-            setInterval(createConfetti, 500);
-        });
-    </script>
-
-    <div id="confetti"></div>
+    <h1>🎉 Happy Birthday, Sister! 🎉</h1>
+    <p>Happy birthday, sis! 🎈 Wishing you a year ahead filled with joy, love, and all your heart desires. Cheers to another amazing chapter in your life! 🎂🎈</p>
+    <img src="data:image/jpeg;base64,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" alt="Birthday Image">
 </body>
 </html>
